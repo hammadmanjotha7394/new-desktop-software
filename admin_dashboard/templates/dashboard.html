@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>License Dashboard</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>License Key</th>
+      <th>Expires At</th>
+      <th>Device Limit</th>
+      <th>Active Devices</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for lic in licenses %}
+    <tr>
+      <td>{{ lic.id }}</td>
+      <td>{{ lic.license_key }}</td>
+      <td>{{ lic.expires_at }}</td>
+      <td>{{ lic.device_limit }}</td>
+      <td>{{ lic.active_devices }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

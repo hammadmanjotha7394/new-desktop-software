@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Create License{% endblock %}
+{% block content %}
+<h2>Create New License</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="license_key" class="form-label">License Key</label>
+    <input type="text" class="form-control" id="license_key" name="license_key" required>
+  </div>
+  <div class="mb-3">
+    <label for="duration" class="form-label">Duration (Days)</label>
+    <input type="number" class="form-control" id="duration" name="duration" value="30" required>
+  </div>
+  <div class="mb-3">
+    <label for="device_limit" class="form-label">Device Limit</label>
+    <input type="number" class="form-control" id="device_limit" name="device_limit" value="1" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Create License</button>
+</form>
+{% endblock %}
