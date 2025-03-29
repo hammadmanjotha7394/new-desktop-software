@@ -6,21 +6,25 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ID</th>
       <th>License Key</th>
       <th>Expires At</th>
       <th>Device Limit</th>
       <th>Active Devices</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     {% for lic in licenses %}
     <tr>
-      <td>{{ lic.id }}</td>
       <td>{{ lic.license_key }}</td>
       <td>{{ lic.expires_at }}</td>
       <td>{{ lic.device_limit }}</td>
       <td>{{ lic.active_devices }}</td>
+      <td>
+        <form action="{{ url_for('delete_license', license_key=lic.license_key) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this license?');">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
